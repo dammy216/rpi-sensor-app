@@ -6,6 +6,7 @@ const readGPIO = () => {
   const line = new Line(chip, 26);
 
   line.requestInputMode();
+
   const value = line.getValue();
   line.release();
   return value;
@@ -15,7 +16,7 @@ setInterval(async () => {
   const value = readGPIO();
 
   if (value === 1) {
-    await axios.post("http://119.105.96.137:3000/sensor", {
+    await axios.post("http://119.105.96.137:3000/infrared/sensor", {
       value: value,
       detectedAt: new Date().toISOString()
     });
