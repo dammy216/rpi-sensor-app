@@ -12,13 +12,21 @@ const readGPIO = () => {
   return value;
 };
 
+let prevValue = 0;
+
 setInterval(async () => {
   const value = readGPIO();
 
-  if (value === 1) {
+  // 立ち上がり検出処理
+  if (prevValue === 0 && value === 1) {
+    console.log("Detected rising edge");
+
     await axios.post("http://192.168.32.164:3000/infrared", {
-      value: value,
+      value,
       detectedAt: new Date().toISOString()
     });
   }
-}, 300);
+
+  prevValue = value;
+
+}, 100);
