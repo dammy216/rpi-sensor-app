@@ -1,4 +1,4 @@
-const { Chip, Line } = require("node-libgpiod");
+import { Chip, Line } from "node-libgpiod";
 
 const readGPIO = () => {
   const chip = new Chip(0);
@@ -13,4 +13,4 @@ const readGPIO = () => {
 
 setInterval(() => {
   console.log(readGPIO());
-}, 100); // 0.1秒ごと
+}, 100);

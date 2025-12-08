@@ -1,17 +1,16 @@
 {
-  "dependencies": {
-    "node-libgpiod": "^0.5.3"
-  },
   "name": "raspberrypi",
   "version": "1.0.0",
   "description": "",
-  "main": "rpi.js",
-  "devDependencies": {},
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
+  "type": "commonjs",
+  "dependencies": {
+    "node-libgpiod": "^0.5.3"
+  }
 }
