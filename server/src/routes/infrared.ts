@@ -12,7 +12,7 @@ app.post('/sensor', async (c) => {
   const { value, detectedAt } = await c.req.json<SensorData>();
 
   console.log("Sensor:", value, detectedAt);
-
+  return c.json({ ok: true });
 });
 
 export default app;
