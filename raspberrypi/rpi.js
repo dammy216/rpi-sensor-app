@@ -19,7 +19,7 @@ setInterval(async () => {
 
   // 立ち上がり検出処理
   if (prevValue === 0 && value === 1) {
-    await axios.post("http://192.168.32.164:3000/infrared", {
+    await axios.post("http://192.168.32.164:3000/infrared/post", {
       value,
       detectedAt: new Date().toISOString()
     });

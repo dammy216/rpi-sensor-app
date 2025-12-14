@@ -1,18 +1,27 @@
-import { serve } from '@hono/node-server';
-import { Hono } from 'hono';
-import { cors } from 'hono/cors';
-import infrared from './routes/infrared.js';
+import { Hono } from "hono";
+import { serve } from "@hono/node-server";
+import { Server } from "socket.io";
+import type { Server as HTTPServer } from "node:http";
+import { infraredRoute } from "./routes/infraredRoute.js";
+import { cors } from "hono/cors";
+import { connectDB } from "./database/connect.js";
+
+await connectDB();
 
 const app = new Hono();
+app.use('*', cors({ origin: '*' }));
 
-app.use('*', cors({ origin: '*', allowMethods: ['GET', 'POST', 'PUT', 'DELETE'] }));
-
-app.route('/infrared', infrared);  
-
-serve({
+const httpServer = serve({
   fetch: app.fetch,
   port: 3000,
-  hostname: '0.0.0.0',
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`);
+});
+
+const io = new Server(httpServer as HTTPServer, {
+  cors: { origin: "*" },
+});
+
+app.route('/infrared', infraredRoute(io));
+
+io.on("connection", (socket) => {
+  console.log("WebSocket connected:", socket.id);
 });

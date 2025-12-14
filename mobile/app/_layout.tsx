@@ -1,13 +1,12 @@
+import { useNotification } from '@/services/useNotification';
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
 import { View, Text, Image, TouchableOpacity, Linking, StyleSheet, Platform } from 'react-native';
 import { Menu, MenuOption, MenuOptions, MenuTrigger, MenuProvider } from 'react-native-popup-menu';
-import { rgbaColor } from 'react-native-reanimated/lib/typescript/Colors';
 
 export default function RootLayout() {
-
+  useNotification();
 
   return (
     <ThemeProvider value={DefaultTheme}>
