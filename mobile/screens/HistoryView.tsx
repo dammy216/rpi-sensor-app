@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import { getDetectionHistory } from "../services/apiRequests";
 import DetectionHistoryTable from "../components/ui/DetectionHistoryList";
-import { InfraredDetectionHistory } from "@shared/types/infraredTypes";
+import { InfraredDetectionHistoryData } from "@shared/types/infraredTypes";
 
 export default function HistoryView() {
-  const [histories, setHistories] = useState<InfraredDetectionHistory[] | null>([]);
+  const [histories, setHistories] = useState<InfraredDetectionHistoryData[] | null>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

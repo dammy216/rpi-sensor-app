@@ -1,8 +1,8 @@
-import { InfraredDetectionHistory } from "@shared/types/infraredTypes";
+import { InfraredDetectionHistoryData } from "@shared/types/infraredTypes";
 import { FlatList, View, Text } from "react-native";
 
 type Props = {
-  histories: InfraredDetectionHistory[] | null;
+  histories: InfraredDetectionHistoryData[] | null;
 };
 
 export default function DetectionHistoryList(props: Props) {

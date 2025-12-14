@@ -1,7 +1,7 @@
-import { InfraredDetectionHistory } from "@shared/types/infraredTypes";
+import { InfraredDetectionHistoryData } from "@shared/types/infraredTypes";
 import axios from "axios";
 
-export const getDetectionHistory = async (): Promise<InfraredDetectionHistory[] | null> => {
+export const getDetectionHistory = async (): Promise<InfraredDetectionHistoryData[] | null> => {
   try {
     const response = await axios.get("http://192.168.32.164:3000/infrared/");
     return response ? response.data : null;

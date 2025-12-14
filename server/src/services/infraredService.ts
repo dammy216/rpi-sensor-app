@@ -1,4 +1,4 @@
-import type { InfraredData, InfraredDetectionHistory } from "@shared/types/infraredTypes.js";
+import type { InfraredData, InfraredDetectionHistoryData } from "@shared/types/infraredTypes.js";
 import { Server } from "socket.io";
 import DetectionHistoryModel, { type DetectionHistoryDoc } from "../models/DetectionHistory.js";
 
@@ -16,7 +16,7 @@ export const saveInfraredDetectionHistory = async (data: InfraredData) => {
 
 // 検知情報送信
 export const sendInfraredDetectionInfo = (savedData: DetectionHistoryDoc, io: Server) => {
-  const payload: InfraredDetectionHistory = {
+  const payload: InfraredDetectionHistoryData = {
     id: savedData._id.toString(),
     detectedAt: savedData.detectedAt.toISOString(),
   };
