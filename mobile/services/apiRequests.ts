@@ -1,4 +1,4 @@
-import { InfraredDetectionHistory } from "@/types/DetectionHistoryType";
+import { InfraredDetectionHistory } from "@shared/types/infraredTypes";
 import axios from "axios";
 
 export const getDetectionHistory = async (): Promise<InfraredDetectionHistory[] | null> => {
