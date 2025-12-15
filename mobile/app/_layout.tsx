@@ -1,4 +1,4 @@
-import { useNotification } from '@/services/useNotification';
+import { useNotification } from '@/hooks/useNotification';
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';

@@ -1,5 +1,5 @@
 // services/socket.ts
-import CONSTS from '@shared/constants/const';
+import { CONSTS } from '@/constants/const';
 import { io, Socket } from 'socket.io-client';
 
 let socket: Socket | null = null;

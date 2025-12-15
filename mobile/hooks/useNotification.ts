@@ -1,7 +1,7 @@
 import * as Notifications from 'expo-notifications';
 import { useEffect } from 'react';
-import { disconnectSocket, getSocket } from './socket';
-import { registerInfraredNotification } from './notificationHandlers';
+import { disconnectSocket, getSocket } from '../services/socket';
+import { registerInfraredNotification } from '../services/notificationHandlers';
 import { Socket } from 'socket.io-client';
 
 //通知設定

@@ -3,6 +3,7 @@ import { View, Text } from "react-native";
 import { getDetectionHistory } from "../services/apiRequests";
 import DetectionHistoryTable from "../components/ui/DetectionHistoryList";
 import { InfraredDetectionHistoryData } from "@shared/types/infraredTypes";
+import { useInfraredRealtime } from "@/hooks/useInfraredRealtime";
 
 export default function HistoryView() {
   const [histories, setHistories] = useState<InfraredDetectionHistoryData[] | null>([]);
@@ -12,6 +13,7 @@ export default function HistoryView() {
     const load = async () => {
       try {
         const data = await getDetectionHistory();
+
         setHistories(data);
       } catch (err) {
         console.error("履歴取得失敗", err);
@@ -22,6 +24,10 @@ export default function HistoryView() {
 
     load();
   }, []);
+
+  useInfraredRealtime((newHistory) => {
+    setHistories(prev => [newHistory, ...(prev ?? [])]);
+  });
 
   if (loading) {
     return <Text>Loading...</Text>;

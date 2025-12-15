@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { Server } from "socket.io";
 import type { InfraredData } from "@shared/types/infraredTypes.js";
 import { getInfraredDetectionHistory, saveInfraredDetectionHistory, sendInfraredDetectionInfo } from "../services/infraredService.js";
+import { log } from "node:console";
 
 export const infraredRoute = (io: Server) => {
   const app = new Hono();
@@ -24,8 +25,10 @@ export const infraredRoute = (io: Server) => {
         return c.json({ ok: true });
       }
 
+      log("赤外線検知データ受信:", data);
+
       const savedData = await saveInfraredDetectionHistory(data);
-      await sendInfraredDetectionInfo(savedData, io);
+      sendInfraredDetectionInfo(savedData, io);
 
       return c.json({ ok: true });
     } catch (err) {
