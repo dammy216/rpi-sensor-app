@@ -1,11 +1,12 @@
 // services/socket.ts
+import CONSTS from '@shared/constants/const';
 import { io, Socket } from 'socket.io-client';
 
 let socket: Socket | null = null;
 
 export const getSocket = (): Socket => {
   if (!socket) {
-    socket = io("http://192.168.32.164:3000");
+    socket = io(`http://${CONSTS.LOCAL_SERVER_IP}:3000`);
 
     // 接続成功
     socket.on('connect', () => {
