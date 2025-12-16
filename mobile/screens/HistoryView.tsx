@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text } from "react-native";
 import { getDetectionHistory } from "../services/apiRequests";
-import DetectionHistoryTable from "../components/ui/DetectionHistoryList";
+import DetectionHistoryTable from "../components/DetectionHistoryList";
 import { InfraredDetectionHistoryData } from "@shared/types/infraredTypes";
 import { useInfraredRealtime } from "@/hooks/useInfraredRealtime";
 
