@@ -20,8 +20,9 @@ const io = new Server(httpServer as HTTPServer, {
   cors: { origin: "*" },
 });
 
-app.route('/infrared', infraredRoute(io));
-
 io.on("connection", (socket) => {
   console.log("WebSocket connected:", socket.id);
 });
+
+app.route('/infrared', infraredRoute(io));
+
