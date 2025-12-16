@@ -33,14 +33,14 @@ export default function RootLayout() {
                   />
                 </MenuTrigger>
                 <MenuOptions customStyles={{ optionsContainer: headerStyle.optionsContainer }}>
-                  <MenuOption onSelect={() => Linking.openURL('https://ai.google.dev/gemini-api/docs/live?hl=ja')}>
-                    <Text>公式ドキュメント</Text>
+                  <MenuOption onSelect={() => Linking.openURL('https://abehiroshi.la.coocan.jp/')}>
+                    <Text>太陽が忘れた路地裏</Text>
                   </MenuOption>
-                  <MenuOption onSelect={() => Linking.openURL('https://aistudio.google.com/apikey')}>
-                    <Text>APIキー発行</Text>
+                  <MenuOption onSelect={() => Linking.openURL('https://abehiroshi.la.coocan.jp/')}>
+                    <Text>心を殺した教室の窓</Text>
                   </MenuOption>
-                  <MenuOption onSelect={() => Linking.openURL('https://github.com/dammy216/matsuzaki-info-app')}>
-                    <Text>GitHub</Text>
+                  <MenuOption onSelect={() => Linking.openURL('https://abehiroshi.la.coocan.jp/')}>
+                    <Text>逃げ込んだ毛布の内側</Text>
                   </MenuOption>
                 </MenuOptions>
               </Menu>
