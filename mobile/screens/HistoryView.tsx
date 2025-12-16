@@ -34,7 +34,7 @@ export default function HistoryView() {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <DetectionHistoryTable histories={histories} />
     </View>
   );
