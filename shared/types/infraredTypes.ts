@@ -7,5 +7,5 @@ export interface InfraredData {
 // サーバーからモバイルへ送信される赤外線検知履歴の型
 export interface InfraredDetectionHistoryData {
   id: string;
-  detectedAt: string;
+  detectedTime: string;
 }

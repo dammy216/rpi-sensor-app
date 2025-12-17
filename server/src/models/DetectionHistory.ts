@@ -2,11 +2,11 @@ import mongoose, { Schema, Types } from "mongoose";
 
 export interface DetectionHistoryDoc {
   _id: Types.ObjectId;
-  detectedAt: Date;
+  detectedTime: Date;
 }
 
 const DetectionHistorySchema = new Schema<DetectionHistoryDoc>({
-  detectedAt: {
+  detectedTime: {
     type: Date,
     required: true,
     index: true,

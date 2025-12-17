@@ -14,7 +14,7 @@ export default function DetectionHistoryList(props: Props) {
     return (
       <View style={styles.dataContainer}>
         <View style={styles.textView}>
-          <Text numberOfLines={3} ellipsizeMode='tail' style={styles.dataText}>{formatJstDateTime(histories.detectedAt)}に人を検知しました{emoji.random().emoji}</Text>
+          <Text numberOfLines={3} ellipsizeMode='tail' style={styles.dataText}>{formatJstDateTime(histories.detectedTime)}に人を検知しました{emoji.random().emoji}</Text>
         </View>
       </View>
     );

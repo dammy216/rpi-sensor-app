@@ -5,7 +5,7 @@ import DetectionHistoryModel, { type DetectionHistoryDoc } from "../models/Detec
 // フロントに渡せる形式に変換
 const toInfraredDetectionHistoryData = (doc: DetectionHistoryDoc): InfraredDetectionHistoryData => ({
   id: doc._id.toString(),
-  detectedAt: doc.detectedAt.toISOString(),
+  detectedTime: doc.detectedTime.toISOString(),
 });
 
 // 履歴取得
@@ -17,7 +17,7 @@ export const getInfraredDetectionHistory = async (): Promise<InfraredDetectionHi
 
 // 履歴保存
 export const saveInfraredDetectionHistory = async (data: InfraredData) => {
-  const savedData = await DetectionHistoryModel.create({ detectedAt: new Date(data.detectedAt) });
+  const savedData = await DetectionHistoryModel.create({ detectedTime: new Date(data.detectedAt) });
   return savedData;
 };
 
@@ -26,7 +26,7 @@ export const sendInfraredDetectionInfo = (savedData: DetectionHistoryDoc, io: Se
   const payload = toInfraredDetectionHistoryData(savedData);
 
   io.emit("infraredDetection", payload);
-  io.emit("notification", { detectedAt: payload.detectedAt, });
+  io.emit("notification", { detectedTime: payload.detectedTime, });
 };
 
 
